@@ -9,13 +9,15 @@
     "lint": "vue-cli-service lint",
     "commit": "cz",
     "pre-commit": "lint-staged",
+    "commit-msg": "npm run commitlint",
     "commitlint": "npx commitlint -x @commitlint/config-conventional --edit",
-    "commit-msg": "npm run commitlint"
+    "changelog": "conventional-changelog -p angular -n changelog-options.js -i CHANGELOG.md -s -r 0",
+    "rewrite-changelog": "rm -rf CHANGELOG.md && npm run changelog"
   },
   "lint-staged": {
     "src/**/*.{js,vue}": [
       "eslint --fix",
-      "git add"
+      "git add ."
     ]
   },
   "dependencies": {
