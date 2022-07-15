@@ -8,7 +8,35 @@
   </div>
 </template>
 
+<script>
+import { test } from "./api/test";
+
+export default {
+  data() {
+    return {};
+  },
+  methods: {
+    init() {
+      this.testRequest();
+    },
+    testRequest() {
+      let params = {
+        page: 1,
+        limit: 20,
+      };
+      test(params).then((res) => {
+        console.log(res);
+      });
+    },
+  },
+  created() {
+    this.init();
+  },
+};
+</script>
+
 <style lang="scss">
+@import "./styles/reset.css";
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
